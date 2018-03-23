@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class CamPathManager {
 
-
-
     #region Singleton
     private static CamPathManager instance;
 
@@ -21,6 +19,7 @@ public class CamPathManager {
     }
 
     #endregion
+
 
 
     // Use this for initialization
