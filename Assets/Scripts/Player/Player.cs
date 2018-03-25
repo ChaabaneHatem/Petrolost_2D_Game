@@ -20,12 +20,21 @@ public class Player : MonoBehaviour
     Vector2 SpeedForceVoulant;
     Vector2 RightForce;
 
+
+    //parent of all the player
+    Transform playerParent;
+
     // Use this for initialization
     void Start()
     {
         rg2D = gameObject.transform.GetComponent<Rigidbody2D>();
         isMouving = false;
         PetrolostType = Type.Volant;
+        playerParent = new GameObject().transform;
+        playerParent.name = "PlayerParent";
+
+        gameObject.transform.SetParent(playerParent);
+
 
         SpeedForceRoulant = new Vector2(0, 0);
         SpeedForceVoulant = new Vector2(0, 0);
@@ -36,7 +45,7 @@ public class Player : MonoBehaviour
     {
         rg2D.AddForce(SpeedForceVoulant * GV.MAX_SPEED_PLAYER_VOULANT);
         rg2D.AddForce(RightForce * 5);
-        rg2D.AddTorque(SpeedForceRoulant.magnitude * GV.MAX_SPEED_PLAYER_ROULANT);
+        rg2D.AddTorque(-SpeedForceRoulant.magnitude * GV.MAX_SPEED_PLAYER_ROULANT);
 
 
 
