@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     //info of the speed vector 
     Vector2 SpeedForceRoulant;
     Vector2 SpeedForceVoulant;
+    Vector2 RightForce;
 
     // Use this for initialization
     void Start()
@@ -28,11 +29,17 @@ public class Player : MonoBehaviour
 
         SpeedForceRoulant = new Vector2(0, 0);
         SpeedForceVoulant = new Vector2(0, 0);
-
+        RightForce = new Vector2(0, 0);
     }
 
     private void FixedUpdate()
     {
+        rg2D.AddForce(SpeedForceVoulant * GV.MAX_SPEED_PLAYER_VOULANT);
+        rg2D.AddForce(RightForce * 5);
+        rg2D.AddTorque(SpeedForceRoulant.magnitude * GV.MAX_SPEED_PLAYER_ROULANT);
+
+
+
 
     }
 
@@ -41,7 +48,23 @@ public class Player : MonoBehaviour
     {
         if (move_key_espace)
         {
+            Debug.Log("move Player");
+            if (this.gameObject.CompareTag("PlayerVoulant"))
+            {
+                SpeedForceVoulant = Vector2.up;
+            }
+            else if (gameObject.CompareTag("PlayerRoulant"))
+            {
+                SpeedForceRoulant = Vector2.right;
+            }
 
+            RightForce = Vector2.right;
+        }
+        else
+        {
+            SpeedForceRoulant = new Vector2(0, 0);
+            SpeedForceVoulant = new Vector2(0, 0);
+            RightForce = new Vector2(0, 0);
         }
     }
 
@@ -53,7 +76,7 @@ public class Player : MonoBehaviour
 
 
 
-    public void TrasFormType()
+    public void TransFormType()
     {
 
     }
