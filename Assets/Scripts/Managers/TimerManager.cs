@@ -32,6 +32,9 @@ public sealed class TimerManager
 
     public void AddTimer(object from, Timer timer)
     {
+
+        Debug.Log("Add timer");
+
         if (TimeBook.ContainsKey(from))
         {
             TimeBook[from].Add(timer);
@@ -46,12 +49,17 @@ public sealed class TimerManager
 
     public void Start()
     {
+        Debug.Log("start");
+
         TimeBook = new Dictionary<object, List<Timer>>();
     }
 
     public void Update()
     {
         float timeSinceLastUpdate = Time.deltaTime;
+
+        Debug.Log("TimeBook.Count : "+ TimeBook.Count);
+
 
         if (TimeBook.Count != 0)
         {
