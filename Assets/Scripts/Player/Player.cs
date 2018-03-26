@@ -2,13 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using type;
 
-public class Player : MonoBehaviour
+namespace type
 {
     public enum Type
     {
         Roulant, Volant
     }
+}
+
+public class Player : MonoBehaviour
+{
+
+
+
 
     //info of the gameObject Player
     Rigidbody2D rg2D;
@@ -85,9 +93,6 @@ public class Player : MonoBehaviour
 
 
 
-    public void TransFormType()
-    {
 
-    }
 
 }
