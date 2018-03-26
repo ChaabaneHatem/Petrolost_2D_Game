@@ -5,7 +5,7 @@ using UnityEngine;
 public class MainStart : MonoBehaviour {
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
         DontDestroyOnLoad(gameObject);
         FlowManager.Instance.Start();
 	}

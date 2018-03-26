@@ -21,11 +21,13 @@ public class FlowManager {
     #endregion
 
     public void Start() {
-
+        TimerManager.Instance.Start();
     }
 
     public void Update() {
-
+        TimerManager.Instance.Update();
     }
+
+
 
 }
