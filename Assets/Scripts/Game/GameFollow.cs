@@ -9,11 +9,13 @@ public class GameFollow : MonoBehaviour
 
     GameObject followCamera;
     GameObject currentPlayer;
+    Dictionary<Type, GameObject> TypeOfPetrolost = new Dictionary<Type, GameObject>();
 
-
-    private void Start()
+    void Start()
     {
-        currentPlayer = GameObject.Instantiate(Resources.Load<GameObject>("Prefabs\\Player\\PetrolostVoulant"));
+        TypeOfPetrolost.Add(Type.Volant, GameObject.Instantiate(Resources.Load<GameObject>("Prefabs\\Player\\PetrolostVoulant")));
+        TypeOfPetrolost.Add(Type.Roulant, GameObject.Instantiate(Resources.Load<GameObject>("Prefabs\\Player\\PetrolostRoulant")));
+        currentPlayer = TypeOfPetrolost[Type.Volant];
         currentPlayer.transform.position = GV.DEFAULT_BEGIN_POINT;
         followCamera = GameObject.FindGameObjectWithTag("FollowCamera");
         followCamera.GetComponent<CinemachineVirtualCamera>().Follow = currentPlayer.transform;
@@ -26,10 +28,13 @@ public class GameFollow : MonoBehaviour
         Player InfoCurrentPLayer = currentPlayer.GetComponent<Player>();
         if (InfoCurrentPLayer.PetrolostType == Type.Volant)
         {
+            Debug.Log(InfoCurrentPLayer.PetrolostType);
             Transform currentPosition = currentPlayer.transform;
-            GameObject.DestroyImmediate(currentPlayer);
-            currentPlayer = GameObject.Instantiate(Resources.Load<GameObject>("Prefabs\\Player\\PetrolostRoulant"));
+            currentPlayer.SetActive(false);
+            currentPlayer = TypeOfPetrolost[Type.Roulant];
+            InfoCurrentPLayer.PetrolostType = Type.Roulant;
             currentPlayer.transform.position = currentPosition.position + new Vector3(4, 0, 0);
+            currentPlayer.SetActive(true);
             followCamera.GetComponent<CinemachineVirtualCamera>().Follow = currentPlayer.transform;
         }
     }

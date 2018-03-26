@@ -5,7 +5,7 @@ using Cinemachine;
 
 public class DoorTransform : MonoBehaviour
 {
-
+    
     GameFollow gameFlow;
 
 
@@ -13,12 +13,16 @@ public class DoorTransform : MonoBehaviour
     {
         Debug.Log("collision avec le player");
         Debug.Log(collision.gameObject.tag);
-        gameFlow = GameObject.FindGameObjectWithTag("GameFlow").GetComponent<GameFollow>();
+        if (collision.gameObject.CompareTag("PetrolostVoulant"))
 
-        if (gameFlow != null)
         {
-            gameFlow.TransformType();
+            gameFlow = collision.gameObject.GetComponent<GameFollow>();
+            if (gameFlow != null)
+            {
+                gameFlow.TransformType();
+            }
         }
+
 
     }
 

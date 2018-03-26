@@ -37,7 +37,7 @@ public class Player : MonoBehaviour
     {
         rg2D = gameObject.transform.GetComponent<Rigidbody2D>();
         isMouving = false;
-        PetrolostType = Type.Volant;
+        //PetrolostType = Type.Volant;
         playerParent = new GameObject().transform;
         playerParent.name = "PlayerParent";
 
@@ -69,19 +69,23 @@ public class Player : MonoBehaviour
             if (this.gameObject.CompareTag("PlayerVoulant"))
             {
                 SpeedForceVoulant = Vector2.up;
+                PetrolostType = Type.Volant;
             }
             else if (gameObject.CompareTag("PlayerRoulant"))
             {
                 SpeedForceRoulant = Vector2.right;
+                PetrolostType = Type.Roulant;
             }
 
             RightForce = Vector2.right;
+            isMouving = true;
         }
         else
         {
             SpeedForceRoulant = new Vector2(0, 0);
             SpeedForceVoulant = new Vector2(0, 0);
             RightForce = new Vector2(0, 0);
+            isMouving = false;
         }
     }
 
