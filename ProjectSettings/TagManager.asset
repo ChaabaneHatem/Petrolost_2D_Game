@@ -10,6 +10,7 @@ TagManager:
   - PlayerRoulant
   - FollowCamera
   - GameFlow
+  - Colonie
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - 
   - 
   - Sol
-  - 
+  - Colonie
   - 
   - 
   - 

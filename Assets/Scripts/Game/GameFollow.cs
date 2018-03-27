@@ -13,7 +13,7 @@ public class GameFollow : MonoBehaviour
 
     private void Start()
     {
-        currentPlayer = GameObject.Instantiate(Resources.Load<GameObject>("Prefabs\\Player\\PetrolostRoulant"));
+        currentPlayer = GameObject.Instantiate(Resources.Load<GameObject>("Prefabs\\Player\\PetrolostVoulant"));
         currentPlayer.transform.position = GV.DEFAULT_BEGIN_POINT;
         followCamera = GameObject.FindGameObjectWithTag("FollowCamera");
         followCamera.GetComponent<CinemachineVirtualCamera>().Follow = currentPlayer.transform;

@@ -9,7 +9,8 @@ public class GV
     public static readonly float MAX_SPEED_PLAYER_ROULANT = 10;
     public static readonly float MAX_SPEED_PLAYER_VOULANT = 20;
     public static readonly Vector3 DEFAULT_BEGIN_POINT = new Vector3(0, 1, 0);
-
+    public static readonly float MAX_DISTANCE_FROM_VIRTUAL_PLAYER = 10;
+    public static readonly Vector2 MAX_FORWARD_FORCE = Vector2.right / 5;
 
 
     public static float GetRandomFloat(Vector2 vector)

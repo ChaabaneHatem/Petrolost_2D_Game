@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 50101668439116188}
   - component: {fileID: 114231877463102534}
   - component: {fileID: 114931297517465920}
+  - component: {fileID: 95280114468453330}
   m_Layer: 0
   m_Name: PetrolostVoulant
   m_TagString: PlayerVoulant
@@ -38,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1443029483554886}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.35, y: 0, z: 0}
+  m_LocalPosition: {x: -50, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -54,8 +55,8 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
+  m_UseAutoMass: 1
+  m_Mass: 0.72637546
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -80,7 +81,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.5, y: 1.5}
+    oldSize: {x: 0.99333334, y: 2}
     newSize: {x: 1.5, y: 1.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -88,32 +89,49 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.63, y: -0.37}
-      - {x: 0.69, y: -0.28}
-      - {x: 0.71, y: -0.16}
-      - {x: 0.71, y: 0.099999994}
-      - {x: 0.68, y: 0.24}
-      - {x: 0.64, y: 0.32}
-      - {x: 0.59, y: 0.47}
-      - {x: 0.5, y: 0.56}
-      - {x: 0.25, y: 0.72999996}
-      - {x: -0.11, y: 0.72999996}
-      - {x: -0.32, y: 0.69}
-      - {x: -0.39, y: 0.64}
-      - {x: -0.61, y: 0.39999998}
-      - {x: -0.71, y: 0.21}
-      - {x: -0.72999996, y: 0.01}
-      - {x: -0.72999996, y: -0.089999996}
-      - {x: -0.69, y: -0.22999999}
-      - {x: -0.51, y: -0.5}
-      - {x: -0.32, y: -0.65}
-      - {x: -0.21, y: -0.66999996}
-      - {x: -0.02, y: -0.68}
-      - {x: 0.049999997, y: -0.7}
-      - {x: 0.16, y: -0.7}
-      - {x: 0.28, y: -0.66999996}
-      - {x: 0.38, y: -0.59}
-      - {x: 0.44, y: -0.57}
+    - - {x: 0.3773117, y: -0.33302158}
+      - {x: 0.45580292, y: -0.22453234}
+      - {x: 0.4942932, y: -0.07988015}
+      - {x: 0.4819641, y: 0.106163025}
+      - {x: 0.48130798, y: 0.1548468}
+      - {x: 0.4494171, y: 0.22673692}
+      - {x: 0.42374802, y: 0.2794191}
+      - {x: 0.40267944, y: 0.33292478}
+      - {x: 0.18106842, y: 0.47454023}
+      - {x: -0.077560425, y: 0.47859526}
+      - {x: -0.1618576, y: 0.47508952}
+      - {x: -0.22374725, y: 0.42914447}
+      - {x: -0.3221016, y: 0.33512133}
+      - {x: -0.39776993, y: 0.23432946}
+      - {x: -0.44210052, y: 0.1397573}
+      - {x: -0.46643066, y: 0.05192197}
+      - {x: -0.42642975, y: -0.132682}
+      - {x: -0.39240646, y: -0.22426581}
+      - {x: -0.33848953, y: -0.32952043}
+      - {x: -0.24697495, y: -0.39266184}
+      - {x: -0.16791153, y: -0.42731425}
+      - {x: -0.11024094, y: -0.45347723}
+      - {x: -0.03105545, y: -0.45964035}
+      - {x: 0.08894348, y: -0.49127105}
+      - {x: 0.17045593, y: -0.46673864}
+      - {x: 0.22429276, y: -0.43441245}
+--- !u!95 &95280114468453330
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1443029483554886}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9c061e098c910ef45be045c5932c762b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114231877463102534
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -125,6 +143,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a3741e405383ed479c242913fb64f29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  virtualPlayer: {fileID: 0}
+  isMouving: 0
+  PetrolostType: 0
 --- !u!114 &114931297517465920
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -170,7 +191,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0ab6df06188cf9b418b74b560a501a63, type: 3}
+  m_Sprite: {fileID: 21300000, guid: adf0efa7d03f2874db98f7f3db5e3a0e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
