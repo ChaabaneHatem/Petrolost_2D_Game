@@ -15,7 +15,9 @@ namespace type
 public class Player : MonoBehaviour
 {
 
-
+    //information camera and the virtual player who focus the camera 
+    [Tooltip("the virtual player")]
+    public GameObject virtualPlayer;
 
 
     //info of the gameObject Player
@@ -54,12 +56,17 @@ public class Player : MonoBehaviour
         rg2D.AddForce(SpeedForceVoulant * GV.MAX_SPEED_PLAYER_VOULANT);
         rg2D.AddForce(RightForce * 5);
         rg2D.AddTorque(-SpeedForceRoulant.magnitude * GV.MAX_SPEED_PLAYER_ROULANT);
-
-
-
-
     }
 
+
+    private void Update()
+    {
+        if (Vector3.Distance(virtualPlayer.transform.position, gameObject.transform.position) > GV.MAX_DISTANCE_FROM_VIRTUAL_PLAYER)
+        {
+            this.Dies();
+            GameObject.Destroy(this.gameObject);
+        }
+    }
 
     public void Move(bool move_key_espace)
     {
@@ -90,9 +97,10 @@ public class Player : MonoBehaviour
     }
 
 
-    public void Clone(int nbClone)
+    public void Dies()
     {
-
+        Debug.Log("die !!");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("EndGame");
     }
 
 

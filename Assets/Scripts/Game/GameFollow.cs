@@ -40,6 +40,9 @@ public class GameFollow : MonoBehaviour
     }
 
 
+    public void ReplayGame()
+    {
 
+    }
 
 }
