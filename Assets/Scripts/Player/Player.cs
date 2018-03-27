@@ -86,7 +86,7 @@ public class Player : MonoBehaviour
                 PetrolostType = Type.Roulant;
             }
 
-            RightForce = Vector2.right / 5;
+            RightForce = GV.MAX_FORWARD_FORCE;
             isMouving = true;
             animationMoveSprite.StopPlayback();
         }

@@ -4,7 +4,7 @@ using UnityEngine;
 using Cinemachine;
 using type;
 
-public class GameFollow : MonoBehaviour
+public class GameFlow : MonoBehaviour
 {
 
     GameObject followCamera;
@@ -13,12 +13,12 @@ public class GameFollow : MonoBehaviour
 
     void Start()
     {
-        TypeOfPetrolost.Add(Type.Volant, GameObject.Instantiate(Resources.Load<GameObject>("Prefabs\\Player\\PetrolostVoulant")));
-        TypeOfPetrolost.Add(Type.Roulant, GameObject.Instantiate(Resources.Load<GameObject>("Prefabs\\Player\\PetrolostRoulant")));
-        currentPlayer = TypeOfPetrolost[Type.Volant];
-        currentPlayer.transform.position = GV.DEFAULT_BEGIN_POINT;
-        followCamera = GameObject.FindGameObjectWithTag("FollowCamera");
-        followCamera.GetComponent<CinemachineVirtualCamera>().Follow = currentPlayer.transform;
+        //TypeOfPetrolost.Add(Type.Volant, GameObject.Instantiate(Resources.Load<GameObject>("Prefabs\\Player\\PetrolostVoulant")));
+        //TypeOfPetrolost.Add(Type.Roulant, GameObject.Instantiate(Resources.Load<GameObject>("Prefabs\\Player\\PetrolostRoulant")));
+        //currentPlayer = TypeOfPetrolost[Type.Volant];
+        //currentPlayer.transform.position = GV.DEFAULT_BEGIN_POINT;
+        //followCamera = GameObject.FindGameObjectWithTag("FollowCamera");
+        //followCamera.GetComponent<CinemachineVirtualCamera>().Follow = currentPlayer.transform;
     }
 
 
@@ -42,7 +42,12 @@ public class GameFollow : MonoBehaviour
 
     public void ReplayGame()
     {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("MainScene");
+    }
 
+    public void PlayGame()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("MainScene");
     }
 
 }
