@@ -8,6 +8,7 @@ public class Colonie : MonoBehaviour
     //la position de l'object qui collide 
     Vector3 GameObjectPosition = new Vector3();
 
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("PlayerRoulant"))
