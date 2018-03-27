@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
     Rigidbody2D rg2D;
     public bool isMouving;
     public Type PetrolostType;
+    Animator animationMoveSprite;
 
     //info of the speed vector 
     Vector2 SpeedForceRoulant;
@@ -41,6 +42,7 @@ public class Player : MonoBehaviour
         isMouving = false;
         //PetrolostType = Type.Volant;
         playerParent = new GameObject().transform;
+        animationMoveSprite = gameObject.GetComponent<Animator>();
         playerParent.name = "PlayerParent";
 
         gameObject.transform.SetParent(playerParent);
@@ -84,8 +86,9 @@ public class Player : MonoBehaviour
                 PetrolostType = Type.Roulant;
             }
 
-            RightForce = Vector2.right;
+            RightForce = Vector2.right / 5;
             isMouving = true;
+            animationMoveSprite.StopPlayback();
         }
         else
         {
@@ -93,6 +96,7 @@ public class Player : MonoBehaviour
             SpeedForceVoulant = new Vector2(0, 0);
             RightForce = new Vector2(0, 0);
             isMouving = false;
+            animationMoveSprite.StartPlayback();
         }
     }
 
