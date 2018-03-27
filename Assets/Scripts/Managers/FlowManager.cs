@@ -33,5 +33,18 @@ public class FlowManager {
 
     }
 
+    public void CallGameOver() {
+
+        GameObject[] lasers = GameObject.FindGameObjectsWithTag("Laser");
+
+        foreach (GameObject go in lasers) {
+
+            go.GetComponent<LaserScript>().SwitchActive(false);
+
+        }
+
+        UnityEngine.SceneManagement.SceneManager.LoadScene("EndGame");
+
+    }
 
 }

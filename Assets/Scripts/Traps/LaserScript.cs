@@ -8,7 +8,7 @@ public class LaserScript : MonoBehaviour {
     private BoxCollider2D collider;
     Timer.toCall handler;
     Timer switchingTimer;
-
+    private bool isActive;
 
     public float switchTime = 2.0f;
 
@@ -17,34 +17,34 @@ public class LaserScript : MonoBehaviour {
         render = GetComponent<SpriteRenderer>();
         collider = GetComponent<BoxCollider2D>();
 
+        isActive = true;
+
         handler += SwitchOnOff;
         switchingTimer = new Timer(switchTime, handler, true);
         TimerManager.Instance.AddTimer(this, switchingTimer);
     }
     
-
-
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
+    public void SwitchActive(bool act) {
+        isActive = act;
+    }
 
     public void SwitchOnOff()
     {
 
-
-        if (render.enabled)
+        if (isActive)
         {
-            collider.enabled = false;
-            
-            render.enabled = false;
-        }
-        else {
-            collider.enabled = true;
-            render.enabled = true;
-        }
+            if (render.enabled)
+            {
+                collider.enabled = false;
 
+                render.enabled = false;
+            }
+            else
+            {
+                collider.enabled = true;
+                render.enabled = true;
+            }
+        }
 
     }
 

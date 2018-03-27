@@ -65,7 +65,7 @@ public class Player : MonoBehaviour
     {
         if (Vector3.Distance(virtualPlayer.transform.position, gameObject.transform.position) > GV.MAX_DISTANCE_FROM_VIRTUAL_PLAYER)
         {
-            this.Dies();
+            this.Die();
             GameObject.Destroy(this.gameObject);
         }
     }
@@ -100,16 +100,9 @@ public class Player : MonoBehaviour
     }
 
 
-    public void Dies()
+    public void Die()
     {
-        Debug.Log("die !!");
-        UnityEngine.SceneManagement.SceneManager.LoadScene("EndGame");
+        FlowManager.Instance.CallGameOver();
     }
-
-    public void Die() {
-        Debug.Log("YOU DIED");
-    }
-
-
 
 }

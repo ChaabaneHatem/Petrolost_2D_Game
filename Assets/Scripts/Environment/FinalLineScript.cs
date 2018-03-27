@@ -9,6 +9,9 @@ public class FinalLineScript : MonoBehaviour {
 
             Debug.Log("FINISH!!!!!");
 
+            FlowManager.Instance.CallGameOver();
+
+
         }
 
     }

@@ -42,12 +42,32 @@ public class GameFlow : MonoBehaviour
 
     public void ReplayGame()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("MainScene");
+
+        GameObject[] lasers = GameObject.FindGameObjectsWithTag("Laser");
+
+        foreach (GameObject go in lasers)
+        {
+
+            go.GetComponent<LaserScript>().SwitchActive(true);
+
+        }
+
+        UnityEngine.SceneManagement.SceneManager.LoadScene("MainScene2");
     }
 
     public void PlayGame()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("MainScene");
+
+        GameObject[] lasers = GameObject.FindGameObjectsWithTag("Laser");
+
+        foreach (GameObject go in lasers)
+        {
+
+            go.GetComponent<LaserScript>().SwitchActive(true);
+
+        }
+
+        UnityEngine.SceneManagement.SceneManager.LoadScene("MainScene2");
     }
 
 }
