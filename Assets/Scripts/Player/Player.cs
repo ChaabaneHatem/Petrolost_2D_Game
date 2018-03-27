@@ -33,7 +33,7 @@ public class Player : MonoBehaviour
 
 
     //parent of all the player
-    Transform playerParent;
+    GameObject playerParent;
 
     // Use this for initialization
     void Start()
@@ -41,16 +41,13 @@ public class Player : MonoBehaviour
         rg2D = gameObject.transform.GetComponent<Rigidbody2D>();
         isMouving = false;
         //PetrolostType = Type.Volant;
-        playerParent = new GameObject().transform;
         animationMoveSprite = gameObject.GetComponent<Animator>();
-        playerParent.name = "PlayerParent";
-
-        gameObject.transform.SetParent(playerParent);
-
 
         SpeedForceRoulant = new Vector2(0, 0);
         SpeedForceVoulant = new Vector2(0, 0);
         RightForce = new Vector2(0, 0);
+
+        playerParent = GameObject.FindGameObjectWithTag("PlayerParent");
     }
 
     private void FixedUpdate()
@@ -65,8 +62,7 @@ public class Player : MonoBehaviour
     {
         if (Vector3.Distance(virtualPlayer.transform.position, gameObject.transform.position) > GV.MAX_DISTANCE_FROM_VIRTUAL_PLAYER)
         {
-            this.Die();
-            GameObject.Destroy(this.gameObject);
+            Die(gameObject);
         }
     }
 
@@ -100,9 +96,12 @@ public class Player : MonoBehaviour
     }
 
 
-    public void Die()
+    public void Die(GameObject playerToDie)
     {
-        FlowManager.Instance.CallGameOver();
+        Destroy(playerToDie);
+        if (playerParent.transform.childCount - 1 == 0)
+        {
+            FlowManager.Instance.CallGameOver();
+        }
     }
-
 }

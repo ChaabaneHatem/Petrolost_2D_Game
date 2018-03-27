@@ -8,6 +8,8 @@ public class Colonie : MonoBehaviour
     //la position de l'object qui collide 
     Vector3 GameObjectPosition = new Vector3();
 
+    public Transform playerParent;
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -30,6 +32,7 @@ public class Colonie : MonoBehaviour
                 GameObjectPosition += new Vector3(1, 0, 0);
                 GameObject newobj = GameObject.Instantiate(Resources.Load<GameObject>("Prefabs\\Player\\PetrolostVoulant"));
                 newobj.transform.position = GameObjectPosition;
+                newobj.gameObject.transform.SetParent(playerParent);
             }
         }
 

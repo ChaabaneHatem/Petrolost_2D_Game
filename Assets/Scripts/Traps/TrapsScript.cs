@@ -15,7 +15,7 @@ public class TrapsScript : MonoBehaviour {
     void OnCollisionEnter2D(Collision2D coll) {
         if (coll.gameObject.tag == "PlayerVoulant" || coll.gameObject.tag == "PlayerRoulant") {
             Player script = coll.gameObject.GetComponent<Player>();
-            script.Die();
+            script.Die(coll.gameObject);
         }
 
     }
