@@ -26,14 +26,12 @@ public sealed class TimerManager
 
     #endregion
 
-    private static readonly object padlock = new object();
     private static Dictionary<object, List<Timer>> TimeBook;
 
 
     public void AddTimer(object from, Timer timer)
     {
 
-        Debug.Log("Add timer");
 
         if (TimeBook.ContainsKey(from))
         {
@@ -49,7 +47,6 @@ public sealed class TimerManager
 
     public void Start()
     {
-        Debug.Log("start");
 
         TimeBook = new Dictionary<object, List<Timer>>();
     }
@@ -58,7 +55,6 @@ public sealed class TimerManager
     {
         float timeSinceLastUpdate = Time.deltaTime;
 
-        Debug.Log("TimeBook.Count : "+ TimeBook.Count);
 
 
         if (TimeBook.Count != 0)

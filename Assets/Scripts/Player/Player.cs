@@ -65,7 +65,6 @@ public class Player : MonoBehaviour
     {
         if (move_key_espace)
         {
-            Debug.Log("move Player");
             if (this.gameObject.CompareTag("PlayerVoulant"))
             {
                 SpeedForceVoulant = Vector2.up;
@@ -91,7 +90,9 @@ public class Player : MonoBehaviour
 
     }
 
-
+    public void Die() {
+        Debug.Log("YOU DIED");
+    }
 
 
 
