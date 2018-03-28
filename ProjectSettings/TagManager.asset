@@ -11,6 +11,7 @@ TagManager:
   - FollowCamera
   - GameFlow
   - Colonie
+  - PlayerParent
   layers:
   - Default
   - TransparentFX
